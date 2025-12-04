@@ -1,14 +1,13 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    overflow: hidden;
+body {
+    overflow-x: hidden;
 }
-/* header section */
 
-header{
+header {
     height: 60px;
     width: 100%;
     box-shadow: 0 0 3px black;
@@ -17,55 +16,86 @@ header{
     align-items: center;
     padding: 0 20px;
 }
-header img{
+header img {
     height: 60px;
     width: 60px;
     border-radius: 50%;
     object-fit: cover;
 }
-.tags{
-width: 50%;
-display: flex;
-gap: 10%;
-justify-content: end;
+.tags {
+    width: 50%;
+    display: flex;
+    gap: 10%;
+    justify-content: end;
 }
-.tags a{
+.tags button {
     font-size: 20px;
     text-decoration: none;
     color: gray;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
-.tags a:hover{
+.tags button:hover {
     color: black;
 }
-header i{
+header i {
     font-size: 20px;
 }
 
-
-/* header section end  */
-
-/* section start  */
-section{
-    height: 90vh;
+section {
     width: 100%;
-    /* position: relative; */
-     /* overflow: hidden; */
-} 
-section img{
-    height: 90vh;
+    padding: 0;
+    position: relative;
+    height: calc(100vh - 60px - 50px);
+    padding-bottom: 0;
+}
+
+section video {
+    height: 100%; 
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.about-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    height: 100%; 
+    min-height: 100%; 
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    text-align: start;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+    box-sizing: border-box;
+    padding: 20px 10%;
+    overflow-y: auto; 
+}
+
+section img {
+    height: 100%; 
     width: 100%;
     object-fit: cover;
     object-position: center;
-    filter: blur(px);
 }
-.intro{
+.intro {
     position: absolute;
     height: 200px;
     width: 500px;
     border: 5px solid white;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     background-color: transparent;
     border-radius: 5px;
     color: white;
@@ -74,18 +104,17 @@ section img{
     align-items: center;
     flex-direction: column;
     gap: 10%;
-    /* --webkit-backdrop-filter: blur(20px); */
-} 
-.intro:hover{
-    animation:introborder 2s linear;
 }
-.intro h1{
+.intro:hover {
+    animation: introborder 2s linear;
+}
+.intro h1 {
     font-size: 7vh;
 }
-.intro h3{
+.intro h3 {
     font-size: 4vh;
 }
-.intro button{
+.intro button {
     height: 40px;
     width: 120px;
     border: none;
@@ -93,166 +122,123 @@ section img{
     font-size: 3vh;
     background-color: black;
     color: white;
+    cursor: pointer;
 }
-.intro button:hover{
+.intro button:hover {
     background-color: white;
     color: black;
     transform: scale(1.1);
 }
-@keyframes introborder{
-0%{
-    border-color: black;
-    color: black;
-}
-50%{
-  border-color: gray;  
-  color: gray;
-}
-100%{
-    border-color: white;
-    color: white;
-}
+
+@keyframes introborder {
+    0% { border-color: black; color: black; }
+    50% { border-color: gray; color: gray; }
+    100% { border-color: white; color: white; }
 }
 
-footer{
+.about-me {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.boxes {
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 20px; 
+}
+.box1 {
+    width: 250px;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.1); 
+}
+.box1:hover {
+    border-bottom: 2px solid gray;
+}
+.box1 h3 {
+    font-size: 20px;
+    text-decoration: underline;
+}
+.box1 p {
+    font-size: 15px;
+    margin-top: 15px;
+    color: rgb(182, 181, 181);
+}
+
+
+footer {
     background-color: white;
     height: 50px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
+    position: fixed; 
     bottom: 0;
+    border-top: 1px solid #ccc;
+    z-index: 10;
 }
 
-/* login section  */
-.login-form{
-     font-family: Arial, sans-serif;
-    background-color: #f4f4f9; 
-    display: flex;
-    justify-content: center; 
-    align-items: start; 
-    flex-direction: column;
-    height:350px;
-    border-radius: 10px;
-    width: 300px;
-    margin: 0;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    padding: 20px;
-}
-
-.login-container {
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
-    width: 100%;
-}
-
-
-.login-form h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 25px;
-}
-
-
-.input-group {
-    margin-bottom: 20px;
-    width: 100%;
-}
-
-.input-group label {
-    display: block; 
-    margin-bottom: 8px;
-    color: #555;
-    font-weight: bold;
-}
-
-.input-group input[type="text"],
-.input-group input[type="password"] {
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box; 
-    transition: border-color 0.3s;
-    width: 100%;
-}
-
-.input-group input:focus {
-    border-color: #007bff;
-    outline: none;
-}
-
-.submit-btn {
-    width: 100%;
-    padding: 12px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.submit-btn:hover {
-    background-color: #0056b3; 
-}
-
-
-.forgot-link {
-    text-align: right;
-    margin-top: 15px;
-}
-
-.forgot-link a {
-    color: #007bff;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.forgot-link a:hover {
-    text-decoration: underline;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width:480px) {
-    .tags{
-        display:none;
+/* --- Media Queries (Responsiveness) --- */
+@media (max-width: 480px) {
+    .tags {
+        display: none;
     }
-    .intro{
+    .st-menu {
+        display: block; 
+    }
+
+    section {
+        height: calc(100vh - 60px - 50px);
+    }
+
+    .intro {
         height: 300px;
         width: 90%;
     }
-    .intro h1{
+    .intro h1 {
         font-size: 5vh;
     }
-    .intro h3{
+    .intro h3 {
         font-size: 3vh;
+    }
+    
+
+    .about-text {
+        padding: 20px 5%; 
+        font-size: 16px;
+    }
+    .boxes {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .box1 {
+        width: 90%;
+        height: auto;
+        min-height: 150px;
+        margin: 0;
+    }
+    .box1 h3 {
+        font-size: 18px;
+    }
+    .box1 p {
+        font-size: 14px;
     }
 }
 
-@media (min-width:481px){
-   .st-menu{
-    display: none;
-     }
-   
+@media (min-width: 481px) {
+    .st-menu {
+        display: none; 
+    }
 }
-
-

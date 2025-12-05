@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration & Login System</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="form-card" id="register-card">
+            <h2>Register Account</h2>
+            <form id="register-form">
+                <div class="input-group">
+                    <label for="reg-username">Username</label>
+                    <input type="text" id="reg-username" required>
+                </div>
+                <div class="input-group">
+                    <label for="reg-password">Password</label>
+                    <input type="password" id="reg-password" required>
+                </div>
+                <button type="submit" class="submit-btn register">Register</button>
+            </form>
+            <p class="switch-link">Already have an account? <a href="#" id="show-login">Login here</a></p>
+        </div>
+
+        <div class="form-card hidden" id="login-card">
+            <h2>Login</h2>
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" required>
+                </div>
+                <div class="input-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="submit-btn login">Login</button>
+            </form>
+            <p class="switch-link">Don't have an account? <a href="#" id="show-register">Register here</a></p>
+        </div>
+    </div>
+
+    <div class="popup-overlay hidden" id="popup-overlay">
+        <div class="popup-content">
+            <h3 id="popup-header"></h3>
+            <p id="popup-message"></p>
+            <button id="close-popup">OK</button>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

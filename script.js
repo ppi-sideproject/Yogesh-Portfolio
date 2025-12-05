@@ -30,11 +30,23 @@
 // car.color="maroon";
 // console.log(car);
 
-
 let domManipulation = document.querySelector("section");
+
 let Home = document.getElementById("Home");
 let About_Me = document.getElementById("About_Me");
 let Blog = document.getElementById("Blog");
+
+const menuToggle = document.getElementById('menu-toggle');
+const mobileNav = document.getElementById('mobile-nav');
+
+const allNavButtons = [
+    document.getElementById("Home"),
+    document.getElementById("About_Me"),
+    document.getElementById("Blog"),
+    document.getElementById("Home-Mobile"), 
+    document.getElementById("About_Me-Mobile"), 
+    document.getElementById("Blog-Mobile") 
+].filter(button => button !== null); 
 
 function displayPage(page) {
     switch (page) {
@@ -44,11 +56,11 @@ function displayPage(page) {
                 <div class="intro">
                     <h1>I am Yogesh Chauhan</h1>
                     <h3>I am a developer</h3>
-                    <button id="login-open">View Profile</button>
+                    <a href="login.html"><button id="login-open">View Profile</button></a>
                 </div>
             `;
             break;
-        case "About_Me":
+        case "About_Me": 
             domManipulation.innerHTML = `
                 <video src="https://cdn.pixabay.com/video/2020/01/26/31611-387688517_tiny.mp4" autoplay loop muted></video> 
                 
@@ -79,24 +91,64 @@ function displayPage(page) {
             break;
         case "Blog":
             domManipulation.innerHTML = `
-                <div style="padding: 50px; text-align: center; height: 90vh;">
-                    <h1>Blog Content Coming Soon!</h1>
-                </div>
+               <h2 style="color:#007bff;">Latest Blog Posts</h2>
+    <div class="card-grid">
+        
+        <div class="card">
+            <img src="https://media.istockphoto.com/id/1224339637/photo/online-shop-website-on-home-office-setup.jpg?s=1024x1024&w=is&k=20&c=l7Wap23LvGQe5IBiWT9wH7pApviuzGcXkkZiijjU4ko=" alt="Image for blog post 1" class="card-image">
+            <div class="card-content">
+                <h3>Front End</h3>
+                <p class="card-excerpt">Frontend development uses HTML for structure, CSS for presentation and styling, and JavaScript for dynamic behavior and interactivity, all executed within the user's web browser.</p>
+                <a href="#" class="card-link">Read Article →</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="https://media.istockphoto.com/id/1463092481/photo/relational-database-tables-on-databases-are-placed-on-structured-query-language-code-with.jpg?s=612x612&w=0&k=20&c=lsrs4YdsS8DwRy8IMGOQXnlCAWv5SruHQTfA61xeQGw=" alt="Image for blog post 2" class="card-image">
+            <div class="card-content">
+                <h3>Database</h3>
+                <p class="card-excerpt">SQL is the standard language for querying and managing data, PL/SQL is Oracle's procedural extension for complex database logic, and MySQL is a popular RDBMS software that serves as the engine where SQL commands are executed.</p>
+                <a href="#" class="card-link">Read Tutorial →</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://media.istockphoto.com/id/1163758428/photo/ux-ui-and-programming-development-technology.jpg?s=612x612&w=0&k=20&c=5ARlOzA14gHFM_8q2K-ITk5b6yfCudKJzcNTQXZvapQ=" alt="Image for blog post 3" class="card-image">
+            <div class="card-content">
+                <h3>Backend</h3>
+                <p class="card-excerpt">The backend uses Java Spring and C# .NET (often called DotNet) as powerful frameworks for writing the server-side logic that handles business rules, processes data, and connects the frontend to the database.</p>
+                <a href="#" class="card-link">See Designs →</a>
+            </div>
+        </div>
+
+    </div>
             `;
             break;
     } 
 }
 
+function closeMobileNav() {
+    mobileNav.classList.remove('open');
+}
 
-Home.addEventListener("click", () => {
-    displayPage("Home");
-});
-About_Me.addEventListener("click", () => {
-    displayPage("About_Me");
-});
-Blog.addEventListener("click", () => {
-    displayPage("Blog");
+menuToggle.addEventListener('click', () => {
+    mobileNav.classList.toggle('open');
 });
 
+allNavButtons.forEach(button => {
+    button.addEventListener("click", (event) => {
+        const clickedId = event.target.id;
+        
+        const pageId = clickedId.replace('-Mobile', '');
+        
+        displayPage(pageId); 
+        
+        closeMobileNav();
+    });
+});
 
 displayPage("Home");
+
+
+
+
